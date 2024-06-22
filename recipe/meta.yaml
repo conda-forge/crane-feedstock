@@ -1,5 +1,5 @@
 {% set name = "crane" %}
-{% set version = "0.19.1" %}
+{% set version = "0.19.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/google/go-containerregistry/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 2a03430b0c9a8cf3fdfde2608aed99f851e5c57dfed8246bcc637d03a7ab0048
+  sha256: 110f41283fb91ba6d34f6eaaa33b373a2ca026a88222293bfb711c5464059dca
 
 build:
-  number: 1
+  number: 0
   script:
     - go build -v -ldflags "-w -s -X github.com/google/go-containerregistry/cmd/crane/cmd.Version={{ version }}" -o $PREFIX/bin/crane ./cmd/crane  # [not win]
     - go install -v -ldflags "-w -s -X github.com/google/go-containerregistry/cmd/crane/cmd.Version={{ version }}" ./cmd/crane  # [win]
