@@ -1,5 +1,5 @@
 {% set name = "crane" %}
-{% set version = "0.20.0" %}
+{% set version = "0.20.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/google/go-containerregistry/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 56264dcd9078e9be0ec469d30dbd937b1b706fd7c34df91ce82bacd95986ff6b
+  sha256: 4bae53f34011e35ef874a60123b8ae70a5e992d804decb030479dbb888afe6d1
 
 build:
   number: 0
