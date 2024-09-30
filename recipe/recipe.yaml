@@ -23,6 +23,7 @@ requirements:
   build:
     - ${{ compiler('go') }}
     - go-licenses
+    - ${{ stdlib('c') }}
 
 tests:
   - script:
@@ -39,4 +40,3 @@ about:
 extra:
   recipe-maintainers:
     - benmoss
-
