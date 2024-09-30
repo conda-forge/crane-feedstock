@@ -23,6 +23,7 @@ requirements:
   build:
     - ${{ compiler('go') }}
     - go-licenses
+    - ${{ stdlib('c') }}
 
 tests:
   - script:
