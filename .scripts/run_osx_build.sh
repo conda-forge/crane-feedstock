@@ -71,6 +71,7 @@ else
     fi
 
 
+    export SYSTEM_VERSION_COMPAT=0
     rattler-build build --recipe ./recipe \
         -m ./.ci_support/${CONFIG}.yaml \
         --output-dir ${MINIFORGE_HOME}/conda-bld ${EXTRA_CB_OPTIONS:-} \
