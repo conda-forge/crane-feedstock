@@ -3,7 +3,7 @@ About crane-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/crane-feedstock/blob/main/LICENSE.txt)
 
-
+Home: https://github.com/google/go-containerregistry/tree/main/cmd/crane
 
 Package license: Apache-2.0
 
