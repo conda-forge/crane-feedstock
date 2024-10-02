@@ -1,0 +1,42 @@
+context:
+  name: crane
+  version: 0.20.2
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://github.com/google/go-containerregistry/archive/refs/tags/v${{ version }}.tar.gz
+  sha256: 064e9c47e3dac49acddccb4afe908b9d835725d371ee9a471fd445d134fbbf1d
+
+build:
+  number: 0
+  script:
+    - if: not win
+      then: go build -v -ldflags "-w -s -X github.com/google/go-containerregistry/cmd/crane/cmd.Version=${{ version }}" -o $PREFIX/bin/crane ./cmd/crane
+    - if: win
+      then: go install -v -ldflags "-w -s -X github.com/google/go-containerregistry/cmd/crane/cmd.Version=${{ version }}" ./cmd/crane
+    - go-licenses save ./cmd/crane --save_path=./license-files
+
+requirements:
+  build:
+    - ${{ compiler('go') }}
+    - go-licenses
+    - ${{ stdlib('c') }}
+
+tests:
+  - script:
+      - crane version
+
+about:
+  license: Apache-2.0
+  license_file:
+    - LICENSE
+    - license-files/
+  summary: A tool for interacting with remote OCI images and registries.
+  homepage: https://github.com/google/go-containerregistry/tree/main/cmd/crane
+
+extra:
+  recipe-maintainers:
+    - benmoss
