@@ -1,6 +1,6 @@
 context:
   name: crane
-  version: "0.20.3"
+  version: "0.20.4"
 
 package:
   name: ${{ name|lower }}
@@ -8,15 +8,14 @@ package:
 
 source:
   url: https://github.com/google/go-containerregistry/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: 663f4b808c10315f56a09b7c0a63e314ad79b16a07f950641330899db68c6075
+  sha256: d7fc44f9ed726db1a7033106cb5afe118301dbd4797e631eed804d58325bd0bb
 
 build:
-  number: 1
+  number: 0
   script:
     - if: not win
       then: go build -v -ldflags "-w -s -X github.com/google/go-containerregistry/cmd/crane/cmd.Version=${{ version }}" -o $PREFIX/bin/crane ./cmd/crane
-    - if: win
-      then: go install -v -ldflags "-w -s -X github.com/google/go-containerregistry/cmd/crane/cmd.Version=${{ version }}" ./cmd/crane
+      else: go install -v -ldflags "-w -s -X github.com/google/go-containerregistry/cmd/crane/cmd.Version=${{ version }}" ./cmd/crane
     - go-licenses save ./cmd/crane --save_path=./license-files
 
 requirements:
