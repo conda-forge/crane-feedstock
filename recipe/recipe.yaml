@@ -20,9 +20,8 @@ build:
 
 requirements:
   build:
-    - ${{ compiler('go') }}
+    - ${{ compiler('go-nocgo') }}
     - go-licenses
-    - ${{ stdlib('c') }}
 
 tests:
   - script:
