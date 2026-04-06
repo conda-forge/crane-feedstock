@@ -1,6 +1,6 @@
 context:
   name: crane
-  version: "0.21.3"
+  version: "0.21.4"
 
 package:
   name: ${{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/google/go-containerregistry/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: 5043dc8f756fb1a4931c755a0615122ad355d155d07e385cccd736d046e77d0c
+  sha256: 1fbeec420957f9d0dd78a644acd0409cca4f8024d8a214aa6b8733578422e0a5
 
 build:
   number: 0
